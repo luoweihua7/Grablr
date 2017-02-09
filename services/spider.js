@@ -11,7 +11,7 @@
  * spider.likes('some blog name');
  */
 let tumblr = require('./tumblr');
-let sqlite = require('./sqlite');
+//let sqlite = require('./sqlite');
 let tasks = require('../modules/tasks');
 
 function Spider() {
@@ -29,6 +29,10 @@ function Spider() {
     };
 
     this.grab = (blog, type) => {
+        if (!blog) {
+            throw 'Blog is undefined!';
+        }
+
         let task = tumblr[type](blog);
         task.on('data', handle);
 
@@ -48,4 +52,4 @@ function Spider() {
     }
 }
 
-module.exports = new Spider();
+module.exports = Spider;

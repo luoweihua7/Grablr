@@ -1,5 +1,5 @@
-let util = requir('util');
-let EventEmitter = require('event').EventEmitter;
+let util = require('util');
+let EventEmitter = require('events').EventEmitter;
 let tumblr = require('../modules/tumblr');
 let tasks = require('../modules/tasks');
 
@@ -34,7 +34,7 @@ function Grab(blog, type) {
             offset: offset
         };
 
-        client[fnName](opts, (err, data) => {
+        tumblr[fnName](opts, (err, data) => {
             if (err) {
                 self.emit('error', err);
             } else {
@@ -52,7 +52,7 @@ function Grab(blog, type) {
         });
     };
 
-    grab(offset, handle);
+    grab(offset);
 }
 
 util.inherits(Grab, EventEmitter);

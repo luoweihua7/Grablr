@@ -2,7 +2,7 @@ let config = require('../config');
 let knex = require('knex')({
     client: 'sqlite3',
     connection: {
-        filename: config.sqlite3.file
+        filename: config.sqlite.file
     },
     useNullAsDefault: true,
     debug: true

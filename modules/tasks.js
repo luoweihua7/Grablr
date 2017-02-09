@@ -1,5 +1,5 @@
 let redis = require('./redis');
-let sqlite = require('./sqlite').tasks;
+//let sqlite = require('./sqlite').tasks;
 
 let tasks = {};
 let defaults = {
