@@ -52,7 +52,7 @@ knex.schema
             });
         }
 
-        Promise.all([query('users'), query('posts'), query('following')])
+        Promise.all([query('users'), query('posts'), query('following'), query('tasks')])
             .then(function() {
                 logger.info('Database ready')
             })
@@ -64,5 +64,6 @@ knex.schema
 // exports
 exports.knex = knex;
 exports.posts = knex('posts');
-exports.following = knex('followding');
+exports.following = knex('following');
 exports.users = knex('users');
+exports.tasks = knex('tasks');

@@ -1,5 +1,5 @@
 let redis = require('./redis');
-let sqlite = require('./sqlite');
+let sqlite = require('./sqlite').tasks;
 
 let tasks = {};
 let defaults = {
@@ -18,7 +18,8 @@ let instance = module.exports = {
     create: function(taskName, data) {
         let _data = Object.assign({}, defaults, data, {
             data: []
-        })
+        });
+        
         tasks[taskName] = _data;
         return _data;
     },
